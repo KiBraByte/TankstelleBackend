@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BackOffice</title>
+    <link rel="stylesheet" href="../backoffice/backoffice.css">
+</head>
+<body>
+<h1>BackOffice</h1>
+
+<div id="linkContainer">
+    <button class="styled-link" onclick="showForm('formKundeAnlegen')">Kunde Anlegen</button>
+    <button class="styled-link" onclick="showForm('formAbrechnung')">Abrechnung</button>
+    <!-- Add more buttons here for additional forms -->
+</div>
+
+<div id="formKundeAnlegen" class="formContainer" style="display:none;">
+    <h2>Kunde Anlegen</h2>
+    <form id="kundeAnlegenForm">
+        <label for="firmenname">Firmenname</label>
+        <br>
+        <input type="text" id="firmenname" name="firmenname">
+        <br>
+        <label for="status">Status</label>
+        <br>
+        <input type="text" id="status" name="status">
+        <br>
+        <label for="kundenlimit">Kundenlimit</label>
+        <br>
+        <input type="text" id="kundenlimit" name="kundenlimit">
+        <br>
+        <button type="button" class="styled-link" onclick="submitKundeAnlegen()">Anlegen</button>
+    </form>
+    <div id="kundeAnlegenOutput"></div>
+</div>
+
+<div id="formAbrechnung" class="formContainer" style="display:none;">
+    <h2>Abrechnung</h2>
+    <form id="abrechnungForm">
+        <label for="begindatum">Beginndatum</label>
+        <br>
+        <input type="date" id="begindatum" name="begindatum">
+        <br>
+        <label for="enddatum">Enddatum</label>
+        <br>
+        <input type="date" id="enddatum" name="enddatum">
+        <br>
+        <button type="button" class="styled-link" onclick="submitAbrechnung()">Abrufen</button>
+    </form>
+    <div id="abrechnungOutput"></div>
+</div>
+
+<!-- Add more form containers here for additional forms -->
+
+<script>
+    function showForm(formId) {
+        // Hide all forms
+        document.querySelectorAll('.formContainer').forEach(form => {
+            form.style.display = 'none';
+        });
+        // Show the selected form
+        document.getElementById(formId).style.display = 'block';
+    }
+
+    function submitKundeAnlegen() {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("firmenname", document.getElementById("firmenname").value);
+        urlencoded.append("status", document.getElementById("status").value);
+        urlencoded.append("kundenlimit", document.getElementById("kundenlimit").value);
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: "follow"
+        };
+
+        fetch("http://localhost:3000/api/kundeanlegen", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                const output = `<p>Kunden-Nummer: ${result.kundenNr}</p>`;
+                document.getElementById("kundeAnlegenOutput").innerHTML = output;
+            })
+            .catch((error) => {
+                document.getElementById("kundeAnlegenOutput").innerText = "Fehler: " + error;
+            });
+    }
+
+    function submitAbrechnung() {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("begindatum", document.getElementById("begindatum").value);
+        urlencoded.append("enddatum", document.getElementById("enddatum").value);
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: "follow"
+        };
+
+        fetch("http://localhost:3000/api/abrechnung", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                const output = `
+                <p>Abrechnungs-Nummer: ${result.insertedAbrechnung}</p>
+                <p>Mitteilung: ${result.msg}</p>
+            `;
+                document.getElementById("abrechnungOutput").innerHTML = output;
+            })
+            .catch((error) => {
+                document.getElementById("abrechnungOutput").innerText = "Fehler: " + error;
+            });
+    }
+
+
+    // Add more submit functions here for additional forms
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TankSystem</title>
+    <link rel="stylesheet" href="../main/style.css">
+</head>
+<body>
+<h1>Tank-System</h1>
+<div id="linkContainer">
+    <button class="styled-link" onclick="navigate('/kundendaten')">Kunden-Portal</button>
+    <button class="styled-link" onclick="navigate('/kassensystem')">Kassen-System</button>
+    <button class="styled-link" onclick="navigate('/backoffice')">BackOffice-System</button>
+</div>
+
+<script>
+    function navigate(path) {
+        window.location.href = path;
+    }
+</script>
+</body>
+</html>
