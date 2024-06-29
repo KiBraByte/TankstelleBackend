@@ -3,6 +3,7 @@ package htl.it.controller;
 import htl.it.database.callable.FCountTankkarten;
 import htl.it.database.callable.SPTankkarteAnlegen;
 import htl.it.database.dbconnection.DBConnection;
+import htl.it.database.model.AccountRole;
 import htl.it.utilities.ChecksumUtilities;
 import http.server.implementation.common.status.HTTPStatus;
 import http.server.implementation.request.HTTPMethod;
@@ -30,6 +31,10 @@ public class TankkartenAnlegenController extends Controller {
 
     @Override
     public ResponseBuilder controller(HTTPRequest req, ResponseBuilder res, HashMap<String, String> param) {
+        if (!super.hasRequiredPermissions(req)) {
+            return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not autherized");
+        }
+
         if (!req.getBody().containsKey("kundenNr")) {
             return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "kundenNr not found!");
         }
@@ -67,7 +72,7 @@ public class TankkartenAnlegenController extends Controller {
                     pans.stream().map(s -> String.format("\"%s\"", s)).collect(Collectors.joining(","))));
 
         } catch (Exception e) {
-            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, e.getMessage());
+            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Error!");
         }
     }
 
@@ -96,5 +101,10 @@ public class TankkartenAnlegenController extends Controller {
     @Override
     public HTTPMethod getHTTPMethod() {
         return HTTPMethod.POST;
+    }
+
+    @Override
+    public AccountRole getRequiredRole() {
+        return AccountRole.NONE;
     }
 }

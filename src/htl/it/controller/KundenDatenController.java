@@ -2,6 +2,7 @@ package htl.it.controller;
 
 import htl.it.database.callable.SPGetKundenDaten;
 import htl.it.database.dbconnection.DBConnection;
+import htl.it.database.model.AccountRole;
 import htl.it.database.model.KundenDaten;
 import http.server.implementation.common.status.HTTPStatus;
 import http.server.implementation.request.HTTPMethod;
@@ -18,6 +19,10 @@ public class KundenDatenController extends Controller{
 
         @Override
     public ResponseBuilder controller(HTTPRequest req, ResponseBuilder res, HashMap<String, String> param) {
+        if (!super.hasRequiredPermissionsParam(param)) {
+            return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not autherized");
+        }
+
         if (!param.containsKey("kundenNr")) {
             return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "No kundenNr found!");
         }
@@ -38,11 +43,17 @@ public class KundenDatenController extends Controller{
 
     @Override
     public String getRoute() {
-        return "/api/kundendaten/:kundenNr";
+        return "/api/kundendaten/:sessionID/:kundenNr";
     }
 
     @Override
     public HTTPMethod getHTTPMethod() {
         return HTTPMethod.GET;
+    }
+
+
+    @Override
+    public AccountRole getRequiredRole() {
+        return AccountRole.USER;
     }
 }

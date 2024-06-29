@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/main/css/style.css">
+</head>
+<body>
+<label for="UserName">UserName:</label>
+<input type="text" name="UserName" id="UserName">
+<br>
+<label for="Password">Password:</label>
+<input type="text" name="Password" id="Password">
+<button id="LoginBtn">Login!</button>
+</body>
+<script>
+    const buttonElement = document.getElementById("LoginBtn");
+    buttonElement.addEventListener("click", function(_ev) {
+        const urlencoded = new URLSearchParams();
+        urlencoded.set("userName", document.getElementById("UserName").value);
+        urlencoded.set("password", document.getElementById("Password").value);
+
+        fetch("/auth/login", {
+            method: "POST",
+            body: urlencoded
+        }).then((data) => {
+            data.json().then((json) => {
+                console.log(json);
+                if (data.ok) {
+                    localStorage.setItem("sessionID", json.SessionID);
+                    window.location.assign("/");
+                } else {
+                    alert(json.error)
+                }
+            })
+        }).catch((err) => {
+            alert(err);
+        })
+    });
+</script>
+</html>

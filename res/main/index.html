@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>TankSystem</title>
-    <link rel="stylesheet" href="../main/style.css">
+    <link rel="stylesheet" href="/main/css/style.css">
 </head>
 <body>
 <h1>Tank-System</h1>
 <div id="linkContainer">
-    <button class="styled-link" onclick="navigate('/kundendaten')">Kunden-Portal</button>
-    <button class="styled-link" onclick="navigate('/kassensystem')">Kassen-System</button>
-    <button class="styled-link" onclick="navigate('/backoffice')">BackOffice-System</button>
+    <button class="styled-link" onclick='navigate(`/kundendaten/${localStorage.getItem("sessionID") || "0"}`)'>Kunden-Portal</button>
+    <button class="styled-link" onclick='navigate(`/kassensystem/${localStorage.getItem("sessionID") || "0"}`)'>Kassen-System</button>
+    <button class="styled-link" onclick='navigate(`/backoffice/${localStorage.getItem("sessionID") || "0"}`)'>BackOffice-System</button>
 </div>
 
 <script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tankung Generator</title>
-    <link rel="stylesheet" href="../main/style.css">
+    <link rel="stylesheet" href="/main/css/style.css">
     <style>
         body { font-family: Arial, sans-serif; }
         .tankung {
@@ -32,6 +32,9 @@
 <script>
     let count = 0;
     document.getElementById('generateButton').addEventListener('click', function() {
+        const labelElement = document.createElement("div");
+        labelElement.innerText = `Tanksäule ${count}`;
+
         const productElement = document.createElement("div");
         productElement.innerText = "Diesel";
         productElement.id = `product${count}`;
@@ -50,7 +53,8 @@
 
         const tankungDiv = document.createElement("div");
         tankungDiv.className = 'tankung';
-        tankungDiv.append(productElement, costElement, literElement, payButton);
+        tankungDiv.style.cssText = "border: 1px solid green; margin: 2px;";
+        tankungDiv.append(labelElement, productElement, costElement, literElement, payButton);
 
         document.getElementById("tankungen").appendChild(tankungDiv);
 
@@ -60,19 +64,8 @@
             const c = document.getElementById(`cost${id}`).innerText;
             const l = document.getElementById(`liter${id}`).innerText;
 
-            const urlencoded = new URLSearchParams();
-            urlencoded.append("produkt", p);
-            urlencoded.append("kosten", c);
-            urlencoded.append("liter", l);
-
-            let data = await fetch("/kassensystem/zahlen", {
-                method: "POST",
-                body: urlencoded
-            });
-
-            document.open();
-            document.write(await data.text());
-            document.close();
+           event.target.parentElement.remove();
+            window.location.assign(`/kassensystem/zahlen/${localStorage.getItem("sessionID") || "0"}/${p}/${c}/${l}`);
         });
 
         count++;

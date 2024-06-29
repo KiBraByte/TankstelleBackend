@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/lib" />
+      <root url="jar://$PROJECT_DIR$/lib/mssql-jdbc-12.6.2.jre8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Webserver.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Webserver1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lombok.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
   </library>
 </component>

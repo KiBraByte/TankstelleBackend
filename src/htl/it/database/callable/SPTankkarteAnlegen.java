@@ -10,15 +10,17 @@ import java.sql.Types;
 
 public class SPTankkarteAnlegen extends DBCallableStatement<Integer> {
     private final int kundenNr;
+    private final String ausgestelltAuf;
     private final String pan;
 
     private final Date bis;
 
     private final BigDecimal kartenLimit;
 
-    public SPTankkarteAnlegen(DBConnection dbConnection, int kundenNr, String pan, Date bis, BigDecimal kartenLimit) {
+    public SPTankkarteAnlegen(DBConnection dbConnection, int kundenNr,String pan, Date bis, BigDecimal kartenLimit) {
         super(dbConnection);
         this.kundenNr = kundenNr;
+        this.ausgestelltAuf = String.format("Fahrer%04d", kundenNr);
         this.pan = pan;
         this.bis = bis;
         this.kartenLimit = kartenLimit;
@@ -27,11 +29,12 @@ public class SPTankkarteAnlegen extends DBCallableStatement<Integer> {
     @Override
     @SuppressWarnings("all")
     public Integer call() throws SQLException {
-        try (CallableStatement cs = super.dbConnection.getCon().prepareCall(String.format("{call %s(?,?,?,?)}", this.getMSSQLName()))) {
+        try (CallableStatement cs = super.dbConnection.getCon().prepareCall(String.format("{call %s(?,?,?,?,?)}", this.getMSSQLName()))) {
             cs.setInt(1, this.kundenNr);
-            cs.setString(2, this.pan);
-            cs.setDate(3, this.bis);
-            cs.setBigDecimal(4, this.kartenLimit);
+            cs.setString(2, this.ausgestelltAuf);
+            cs.setString(3, this.pan);
+            cs.setDate(4, this.bis);
+            cs.setBigDecimal(5, this.kartenLimit);
 
             cs.execute();
             return 0;

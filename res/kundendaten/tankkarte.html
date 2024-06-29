@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>KundenPortal</title>
-    <link rel="stylesheet" href="../kundendaten/tankkarte.css">
+    <link rel="stylesheet" href="/kundendaten/css/tankkarte.css">
 </head>
 <body>
 <h1>Kunden Portal</h1>
@@ -37,7 +37,7 @@
 
     document.getElementById('button').addEventListener('click', function() {
 
-        fetch(`/api/kundendaten/${document.getElementById("kID").value}`, { method: "GET" })
+        fetch(`/api/kundendaten/${localStorage.getItem("sessionID") || "0"}/${document.getElementById("kID").value}`, { method: "GET" })
             .then((response) => {
                 if (response.ok) {
                     response.json().then(j => {

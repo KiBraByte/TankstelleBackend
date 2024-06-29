@@ -47,7 +47,7 @@ public class DBConnection implements AutoCloseable{
     }
 
     private void setConnection() throws Exception {
-        this.con = DriverManager.getConnection(buildConString(),settings.getSetting(DBConnectionSettings.Conf.USERNAME), " Pa$$word1234 ");
+        this.con = DriverManager.getConnection(buildConString(),settings.getSetting(DBConnectionSettings.Conf.USERNAME), settings.getSetting(DBConnectionSettings.Conf.PASSWORD));
     }
 
     @Override

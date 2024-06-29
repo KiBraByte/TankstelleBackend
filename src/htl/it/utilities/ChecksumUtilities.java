@@ -21,11 +21,14 @@ public class ChecksumUtilities {
         }
         return Optional.of(sum);
     }
+
+    //berechnet checksum
     public static Optional<Integer> useLuhnAlgo(String numberString) {
         Optional<Integer> sum = getLuhnSum(numberString);
         return sum.map((integer) -> (10 - (integer % 10)) % 10);
     }
 
+    //verifiziert anhand checksum
     public static boolean verifyLuhnAlgo(String numberString) {
         final int lastDigit = numberString.charAt(numberString.length() - 1) - '0';
         return getLuhnSum(numberString.replace("-" + lastDigit, "")).filter((num) -> (num + lastDigit) % 10 == 0).isPresent();

@@ -2,11 +2,13 @@ package htl.it.controller;
 
 import htl.it.database.callable.SPTankungAnlegen;
 import htl.it.database.dbconnection.DBConnection;
+import htl.it.database.model.AccountRole;
 import htl.it.utilities.ChecksumUtilities;
 import http.server.implementation.common.status.HTTPStatus;
 import http.server.implementation.request.HTTPMethod;
 import http.server.implementation.request.HTTPRequest;
 import http.server.implementation.response.ResponseBuilder;
+import http.server.implementation.response.ResponseHeader;
 import lombok.Getter;
 
 import java.math.BigDecimal;
@@ -22,8 +24,10 @@ public class TankungsController extends Controller {
 
     @Override
     public ResponseBuilder controller(HTTPRequest req, ResponseBuilder res, HashMap<String, String> param) {
-        //produktname oder id ?>???
-        //produkt is always diesel
+        if (!super.hasRequiredPermissions(req)) {
+            return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not authenticated!");
+        }
+
         String[] requiredFields = new String[] {"pan"/*, "produkt"*/, "tsnr", "menge", "preisproeinheit"};
         if (!req.getBody().keySet().containsAll(Arrays.asList(requiredFields))) {
             return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Fields missing!");
@@ -45,6 +49,7 @@ public class TankungsController extends Controller {
             if (result > TankungStatus.values().length - 1) {
                 return super.buildErrorResponse(res, HTTPStatus.SERVER_ERR_500_GENERAL, "Update TankungStatus!");
             } else if (result > 0) {
+                System.out.println(result);
                 return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, TankungStatus.values()[result].getMsg());
             }
 
@@ -80,5 +85,10 @@ public class TankungsController extends Controller {
             this.msg = msg;
         }
 
+    }
+
+    @Override
+    public AccountRole getRequiredRole() {
+        return AccountRole.BACKOFFICE;
     }
 }

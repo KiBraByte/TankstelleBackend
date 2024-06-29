@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e34b3968-2d1d-4a83-87a6-c6bb6bcebd3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/res/login/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/BackOfficeViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/HomePageViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/KassenSystemZahlenViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/KassensystemViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPCreateUserAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPSessionRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/htl/it/database/model/AccountRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/db.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Webserver.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Webserver.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Webserver1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/backoffice/backoffice.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/backoffice/css/backoffice.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/backoffice/backoffice.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/backoffice/backoffice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/backoffice/backofficeold.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/backoffice/backofficeold.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/kassensystem/generieren.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/kassensystem/generieren.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/kassensystem/zahlen.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/kassensystem/zahlen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/kundendaten/tankkarte.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/kundendaten/css/tankkarte.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/kundendaten/tankkarte.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/kundendaten/tankkarte.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/main/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/main/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/main/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/AbrechnungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/AbrechnungsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KundenAnlegenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/KundenAnlegenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/TankkartenAnlegenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/TankkartenAnlegenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/TankungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/TankungsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/DBCallableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/database/callable/DBCallableStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPGetLetzteAbrechnungFor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPTankkarteAnlegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPTankkarteAnlegen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/dbconnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/database/dbconnection/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/model/Abrechnung.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/utilities/ChecksumUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/utilities/ChecksumUtilities.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2i9ROsCOt6pJunZJ6ruNhrcOqqe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/kilia/OneDrive/Desktop/TankstelleBackend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kilia\OneDrive\Desktop\TankstelleBackend\res\backoffice\css" />
+      <recent name="C:\Users\kilia\OneDrive\Desktop\TankstelleBackend\res\main\css" />
+      <recent name="C:\Users\kilia\OneDrive\Desktop\TankstelleBackend\res\kundendaten\css" />
+      <recent name="C:\Users\kilia\OneDrive\Desktop\TankstelleBackend\lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TankstelleBackend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-16.0.2-corretto-16.0.2-4caba194b151-cab9e76a" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e34b3968-2d1d-4a83-87a6-c6bb6bcebd3b" name="Changes" comment="" />
+      <created>1718900777834</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718900777834</updated>
+      <workItem from="1718900778868" duration="430000" />
+      <workItem from="1718901217419" duration="492000" />
+      <workItem from="1718901718818" duration="7797000" />
+      <workItem from="1718912462206" duration="344000" />
+      <workItem from="1718912814798" duration="638000" />
+      <workItem from="1718913461954" duration="7939000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

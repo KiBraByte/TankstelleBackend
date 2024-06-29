@@ -2,6 +2,7 @@ package htl.it.controller;
 
 import htl.it.database.callable.SPBerechneAbrechnung;
 import htl.it.database.dbconnection.DBConnection;
+import htl.it.database.model.AccountRole;
 import http.server.implementation.common.status.HTTPStatus;
 import http.server.implementation.request.HTTPMethod;
 import http.server.implementation.request.HTTPRequest;
@@ -17,6 +18,11 @@ public class AbrechnungsController extends Controller {
 
     @Override
     public ResponseBuilder controller(HTTPRequest req, ResponseBuilder res, HashMap<String, String> param) {
+
+        if (!super.hasRequiredPermissions(req)) {
+            return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not autherized");
+        }
+
         if (!req.getBody().containsKey("begindatum") || !req.getBody().containsKey("enddatum")) {
             return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "One or more dates are missing!");
         }
@@ -49,5 +55,10 @@ public class AbrechnungsController extends Controller {
     @Override
     public HTTPMethod getHTTPMethod() {
         return HTTPMethod.POST;
+    }
+
+    @Override
+    public AccountRole getRequiredRole() {
+        return AccountRole.NONE;
     }
 }

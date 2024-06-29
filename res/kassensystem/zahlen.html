@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAN Eingabe</title>
-    <link rel="stylesheet" href="../main/style.css">
+    <link rel="stylesheet" href="/main/css/style.css">
 </head>
 <body>
 <h1>PAN Eingabe</h1>
@@ -32,10 +32,12 @@
         urlencoded.append("menge", l);
         urlencoded.append("pan", pan);
         urlencoded.append("tsnr", "40100");
+        urlencoded.append("sessionID", localStorage.getItem("sessionID") || 0);
 
-        fetch("http://localhost:2000/api/tankunganlegen", {
+        fetch("/api/tankunganlegen", {
             method: "POST",
-            body: urlencoded
+            body: urlencoded,
+            redirect: "follow"
         })
             .then((res) => {
                 res.json().then((json) => {

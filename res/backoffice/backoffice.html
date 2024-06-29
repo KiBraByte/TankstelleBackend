@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>BackOffice</title>
-    <link rel="stylesheet" href="../backoffice/backoffice.css">
+    <link rel="stylesheet" href="/backoffice/css/backoffice.css">
 </head>
 <body>
 <h1>BackOffice</h1>
 
 <div id="linkContainer">
     <button class="styled-link" onclick="showForm('formKundeAnlegen')">Kunde Anlegen</button>
+    <button class="styled-link" onclick="showForm('formTankkarte')">Tankkarte Anlegen</button>
     <button class="styled-link" onclick="showForm('formAbrechnung')">Abrechnung</button>
     <!-- Add more buttons here for additional forms -->
 </div>
@@ -19,7 +20,15 @@
     <form id="kundeAnlegenForm">
         <label for="firmenname">Firmenname</label>
         <br>
-        <input type="text" id="firmenname" name="firmenname">
+        <input type="text" id="firmenname" name="firmenname" required>
+        <br>
+        <label for="UserAccount">UserAccount</label>
+        <br>
+        <input type="text" id="UserAccount" name="UserAccount" required>
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input type="text" id="password" name="password" required>
         <br>
         <label for="status">Status</label>
         <br>
@@ -32,6 +41,31 @@
         <button type="button" class="styled-link" onclick="submitKundeAnlegen()">Anlegen</button>
     </form>
     <div id="kundeAnlegenOutput"></div>
+</div>
+
+
+<div id="formTankkarte" class="formContainer" style="display:none;">
+    <h2>Tankkarte</h2>
+    <form id="tankkartenForm">
+        <label for="kundenNr">KNr:</label>
+        <br>
+        <input type="text" id="kundenNr" name="kundenNr" required>
+        <br>
+        <label for="jahreGueltig">Jahre Gueltig:</label>
+        <br>
+        <input type="number" id="jahreGueltig" name="jahreGueltig">
+        <br>
+        <label for="limit">Limit Euro:</label>
+        <br>
+        <input type="number" id="limit" name="limit">
+        <br>
+        <label for="anzahlKarten">Anzahl Karten:</label>
+        <br>
+        <input type="number" id="anzahlKarten" name="anzahlKarten">
+        <br>
+        <button type="button" class="styled-link" onclick="submitTankkarte()">Anlegen</button>
+    </form>
+    <div id="tankkartenOutput"></div>
 </div>
 
 <div id="formAbrechnung" class="formContainer" style="display:none;">
@@ -49,8 +83,6 @@
     </form>
     <div id="abrechnungOutput"></div>
 </div>
-
-<!-- Add more form containers here for additional forms -->
 
 <script>
     function showForm(formId) {
@@ -70,6 +102,9 @@
         urlencoded.append("firmenname", document.getElementById("firmenname").value);
         urlencoded.append("status", document.getElementById("status").value);
         urlencoded.append("kundenlimit", document.getElementById("kundenlimit").value);
+        urlencoded.append("userName", document.getElementById("UserAccount").value);
+        urlencoded.append("password", document.getElementById("password").value);
+        urlencoded.append("sessionID", localStorage.getItem("sessionID") || "0");
 
         const requestOptions = {
             method: "POST",
@@ -78,7 +113,7 @@
             redirect: "follow"
         };
 
-        fetch("http://localhost:3000/api/kundeanlegen", requestOptions)
+        fetch("/api/kundeanlegen", requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 const output = `<p>Kunden-Nummer: ${result.kundenNr}</p>`;
@@ -96,6 +131,7 @@
         const urlencoded = new URLSearchParams();
         urlencoded.append("begindatum", document.getElementById("begindatum").value);
         urlencoded.append("enddatum", document.getElementById("enddatum").value);
+        urlencoded.append("sessionID", localStorage.getItem("sessionID") || "0");
 
         const requestOptions = {
             method: "POST",
@@ -104,7 +140,7 @@
             redirect: "follow"
         };
 
-        fetch("http://localhost:3000/api/abrechnung", requestOptions)
+        fetch("/api/abrechnung", requestOptions)
             .then((response) => response.json())
             .then((result) => {
                 const output = `
@@ -115,6 +151,42 @@
             })
             .catch((error) => {
                 document.getElementById("abrechnungOutput").innerText = "Fehler: " + error;
+            });
+    }
+
+    function submitTankkarte() {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("kundenNr", document.getElementById("kundenNr").value);
+        urlencoded.append("jahreGueltig", document.getElementById("jahreGueltig").value);
+        urlencoded.append("limit", document.getElementById("limit").value);
+        urlencoded.append("anzahlKarten", document.getElementById("anzahlKarten").value);
+        urlencoded.append("sessionID", localStorage.getItem("sessionID") || "0");
+
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: "follow"
+        };
+
+        fetch("/api/tankkarteanlegen", requestOptions)
+            .then((response) => response.json()
+                .then((result) => {
+                    if (response.ok) {
+                        for (let pan of result.msg) {
+                            const currEl = document.createElement("p");
+                            currEl.innerText = pan;
+                            document.getElementById("tankkartenOutput").appendChild(currEl);
+                        }
+                    } else {
+                        document.getElementById("tankkartenOutput").innerText = result.error;
+                    }
+            }))
+            .catch((error) => {
+                document.getElementById("tankkartenOutput").innerText = "Fehler: " + error;
             });
     }
 

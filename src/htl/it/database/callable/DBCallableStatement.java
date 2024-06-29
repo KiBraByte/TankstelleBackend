@@ -4,6 +4,7 @@ import htl.it.database.dbconnection.DBConnection;
 
 import java.sql.SQLException;
 
+//Callable Statements wie Stored Procedures oder Functions
 public abstract class DBCallableStatement<T> {
 
     protected final DBConnection dbConnection;
