@@ -1,7 +1,7 @@
 //Erstellt: 20.06.2024, Von: Kilian Brandstoetter, Beschreibung: Tankstellen Backend
-import htl.it.controller.*;
-import htl.it.database.dbconnection.DBConnection;
-import htl.it.database.dbconnection.DBConnectionSettings;
+import htl.it.brs.controller.*;
+import htl.it.brs.database.dbconnection.DBConnection;
+import htl.it.brs.database.dbconnection.DBConnectionSettings;
 import http.server.implementation.config.ConfigurationManager;
 import http.server.implementation.request.HTTPMethod;
 import http.server.implementation.server.Server;

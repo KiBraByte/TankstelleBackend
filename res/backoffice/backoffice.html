@@ -101,7 +101,7 @@
         const urlencoded = new URLSearchParams();
         urlencoded.append("firmenname", document.getElementById("firmenname").value);
         urlencoded.append("status", document.getElementById("status").value);
-        urlencoded.append("kundenlimit", document.getElementById("kundenlimit").value);
+        urlencoded.append("limit", document.getElementById("kundenlimit").value);
         urlencoded.append("userName", document.getElementById("UserAccount").value);
         urlencoded.append("password", document.getElementById("password").value);
         urlencoded.append("sessionID", localStorage.getItem("sessionID") || "0");

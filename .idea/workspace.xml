@@ -5,49 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e34b3968-2d1d-4a83-87a6-c6bb6bcebd3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/login/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/BackOfficeViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/HomePageViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/KassenSystemZahlenViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/KassensystemViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPCreateUserAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPSessionRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/database/model/AccountRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Webserver.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Webserver.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Webserver1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/backoffice/backoffice.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/backoffice/css/backoffice.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/backoffice/backoffice.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/backoffice/backoffice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/backoffice/backofficeold.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/backoffice/backofficeold.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/kassensystem/generieren.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/kassensystem/generieren.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/kassensystem/zahlen.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/kassensystem/zahlen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/kundendaten/tankkarte.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/kundendaten/css/tankkarte.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/kundendaten/tankkarte.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/kundendaten/tankkarte.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/res/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/main/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/res/main/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/AbrechnungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/AbrechnungsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KundenAnlegenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/KundenAnlegenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/TankkartenAnlegenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/TankkartenAnlegenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/TankungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/controller/TankungsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/DBCallableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/database/callable/DBCallableStatement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPGetLetzteAbrechnungFor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPTankkarteAnlegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/database/callable/SPTankkarteAnlegen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/database/dbconnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/database/dbconnection/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/database/model/Abrechnung.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/utilities/ChecksumUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/utilities/ChecksumUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/AbrechnungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/AbrechnungsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/BackOfficeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/BackOfficeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/HomePageViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/HomePageViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KassenSystemZahlenViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/KassenSystemZahlenViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KassensystemViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/KassensystemViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KundenAnlegenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/KundenAnlegenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/KundenDatenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/KundenDatenViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/KundenDatenViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/TankkartenAnlegenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/TankkartenAnlegenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/controller/TankungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/TankungsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/DBCallableStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/DBCallableStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/FCountTankkarten.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/FCountTankkarten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/FGetProduktByName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/FGetProduktByName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPBerechneAbrechnung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPBerechneAbrechnung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPCreateUserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPCreateUserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPGetKundenDaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetKundenDaten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPKundeAnlegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPKundeAnlegen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPSessionRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPSessionRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPTankkarteAnlegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPTankkarteAnlegen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/callable/SPTankungAnlegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPTankungAnlegen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/dbconnection/AdditionalProps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/dbconnection/AdditionalProps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/dbconnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/dbconnection/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/dbconnection/DBConnectionSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/dbconnection/DBConnectionSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/model/AccountRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/model/AccountRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/model/KundenAbrechnung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/model/KundenAbrechnung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/database/model/KundenDaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/model/KundenDaten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/utilities/ChecksumUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/utilities/ChecksumUtilities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,14 +76,24 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kilia/OneDrive/Desktop/TankstelleBackend",
+    "last_opened_file_path": "C:/Users/kilia/OneDrive - HTL Wels/Schule/5AHIT/SEW/Java/TankstelleBackend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -118,7 +121,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-16.0.2-corretto-16.0.2-4caba194b151-cab9e76a" />
+        <option value="jdk-17.0.9-jbrsdk-17.0.9-4caba194b151-b614c381" />
       </set>
     </attachedChunks>
   </component>
@@ -136,10 +139,27 @@
       <workItem from="1718912462206" duration="344000" />
       <workItem from="1718912814798" duration="638000" />
       <workItem from="1718913461954" duration="7939000" />
+      <workItem from="1726557485592" duration="22000" />
+      <workItem from="1727763130083" duration="2403000" />
+      <workItem from="1727765566368" duration="4048000" />
+      <workItem from="1727779659234" duration="1175000" />
+      <workItem from="1727781317002" duration="723000" />
+      <workItem from="1727794347264" duration="5099000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/htl/it/brs/controller/KundenDatenController.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
