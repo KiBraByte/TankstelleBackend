@@ -27,7 +27,7 @@ public class TankungsController extends Controller {
             return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not authenticated!");
         }
 
-        String[] requiredFields = new String[] {"pan"/*, "produkt"*/, "tsnr", "menge", "preisproeinheit"};
+        String[] requiredFields = new String[] {"pan", "produkt", "tsnr", "menge", "preisproeinheit"};
         if (!req.getBody().keySet().containsAll(Arrays.asList(requiredFields))) {
             return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Fields missing!");
         }
@@ -42,8 +42,9 @@ public class TankungsController extends Controller {
             int tsnr = Integer.parseInt(req.getBody().get("tsnr"));
             BigDecimal menge = new BigDecimal(req.getBody().get("menge"));
             BigDecimal preisProEinheit = new BigDecimal(req.getBody().get("preisproeinheit"));
+            String produkt = req.getBody().get("produkt");
 
-            int result = new SPTankungAnlegen(dbConnection, pan, tsnr, menge, preisProEinheit).call();
+            int result = new SPTankungAnlegen(dbConnection, pan, tsnr, produkt,  menge, preisProEinheit).call();
 
             if (result > TankungStatus.values().length - 1) {
                 return super.buildErrorResponse(res, HTTPStatus.SERVER_ERR_500_GENERAL, "Update TankungStatus!");

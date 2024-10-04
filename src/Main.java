@@ -7,12 +7,15 @@ import http.server.implementation.request.HTTPMethod;
 import http.server.implementation.server.Server;
 
 //TODO: Validate Data in DB
+//TODO: Customer Data Endpoint -> return Information of cards
+//TODO: Endpoint for getting Information from PAN
+//TODO: Endpoint for getting the prices of Products
 
 public class Main {
     public static void main(String[] args) throws Exception {
         ConfigurationManager.getInstance().setFilePath("res/");
         ConfigurationManager.getInstance().setPort(2000);
-        ConfigurationManager.getInstance().setServeNonRegisteredRoutes(true);
+        ConfigurationManager.getInstance().setServeNonRegisteredRoutes(false);
 
         Server server = new Server();
 
@@ -25,11 +28,6 @@ public class Main {
         new TankungsController(dbConnection).register(server);
         new AbrechnungsController(dbConnection).register(server);
         new LoginController(dbConnection).register(server);
-        new HomePageViewController(dbConnection).register(server);
-        new KassensystemViewController(dbConnection).register(server);
-        new KundenDatenViewController(dbConnection).register(server);
-        new BackOfficeViewController(dbConnection).register(server);
-        new KassenSystemZahlenViewController(dbConnection).register(server);
 
         server.use(HTTPMethod.GET, "/login", (req, res, params) -> res.html("login/login.html"));
 
