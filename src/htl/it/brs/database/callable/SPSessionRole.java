@@ -23,10 +23,9 @@ public class SPSessionRole extends DBCallableStatement<AccountRole> {
 
             cs.execute();
             int idx = cs.getInt(1);
-            if (idx == -1 || idx > AccountRole.values().length - 1) {
+            if (idx == -1 || idx > AccountRole.values().length) {
                 return AccountRole.NONE;
             }
-            System.out.println(idx);
             return AccountRole.values()[idx - 1];
         }
     }

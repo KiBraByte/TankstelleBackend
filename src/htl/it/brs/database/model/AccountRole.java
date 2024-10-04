@@ -1,10 +1,10 @@
 package htl.it.brs.database.model;
 
 public enum AccountRole {
+    NONE("None"),
     USER("User"),
-    ADMIN("Admin"),
     BACKOFFICE("Backoffice"),
-    NONE("None");
+    ADMIN("Admin");
     private final String roleName;
 
     AccountRole(String roleName) {
@@ -21,14 +21,6 @@ public enum AccountRole {
     }
 
     public boolean isAllowed(AccountRole requiredPerm) {
-        if (requiredPerm == NONE)
-            return true;
-
-        if (this == ADMIN)
-            return true;
-        else if (this == BACKOFFICE && requiredPerm != ADMIN)
-            return true;
-        else return this == USER && requiredPerm == USER;
+        return requiredPerm.ordinal() <= this.ordinal();
     }
-
 }

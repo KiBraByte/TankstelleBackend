@@ -6,6 +6,7 @@ import http.server.implementation.config.ConfigurationManager;
 import http.server.implementation.request.HTTPMethod;
 import http.server.implementation.server.Server;
 
+//TODO: Validate Data in DB
 
 public class Main {
     public static void main(String[] args) throws Exception {

@@ -3,6 +3,7 @@ package htl.it.brs.controller;
 import htl.it.brs.database.callable.SPLogin;
 import htl.it.brs.database.dbconnection.DBConnection;
 import htl.it.brs.database.model.AccountRole;
+import htl.it.brs.database.model.LoginDaten;
 import http.server.implementation.common.status.HTTPStatus;
 import http.server.implementation.request.HTTPMethod;
 import http.server.implementation.request.HTTPRequest;
@@ -30,11 +31,11 @@ public class LoginController extends Controller {
             String userName = req.getBody().get("userName");
             String password = req.getBody().get("password");
 
-            int sessionID = new SPLogin(dbConnection, userName, password).call();
-            if (sessionID == -1) {
+            LoginDaten ld = new SPLogin(dbConnection, userName, password).call();
+            if (ld.getSessionID() == -1) {
                 return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Incorrect credentials!");
             } else {
-                return res.setStatus(HTTPStatus.SUCCESS_200_OK).send(String.format("{\"SessionID\": %d}", sessionID));
+                return res.setStatus(HTTPStatus.SUCCESS_200_OK).send(ld.toJSONString());
             }
         } catch (SQLException e) {
             return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_404_NOT_FOUND, e.getMessage());

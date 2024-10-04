@@ -34,7 +34,7 @@ public class KundenAnlegenController extends Controller {
         try {
             dbConnection.getCon().setAutoCommit(false);
             boolean status = !req.getBody().containsKey("status") || req.getBody().get("status").isEmpty() || Boolean.parseBoolean(req.getBody().get("status")) || "1".equals(req.getBody().get("status"));
-            BigDecimal limit = req.getBody().containsKey("limit") ? new BigDecimal(req.getBody().get("limit")) : new BigDecimal(DEFAULT_LIMIT);
+            BigDecimal limit = super.containsAndNotEmpty(req, "limit") ? new BigDecimal(req.getBody().get("limit")) : new BigDecimal(DEFAULT_LIMIT);
             String userName = req.getBody().get("userName");
             String password = req.getBody().get("password");
 
@@ -78,6 +78,6 @@ public class KundenAnlegenController extends Controller {
 
     @Override
     public AccountRole getRequiredRole() {
-        return AccountRole.NONE;
+        return AccountRole.BACKOFFICE;
     }
 }

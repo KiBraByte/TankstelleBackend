@@ -55,4 +55,8 @@ public abstract class Controller {
     protected boolean requiresHigherPermissions(HashMap<String, String> params) {
         return this.requiresHigherPermissions(params.get("sessionID"));
     }
+
+    protected boolean containsAndNotEmpty(HTTPRequest req, String key) {
+        return req.getBody().containsKey(key) && !req.getBody().get(key).isEmpty();
+    }
 }

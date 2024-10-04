@@ -20,7 +20,6 @@ public class TankkartenAnlegenController extends Controller {
 
     private static final String ISSUER_ID = "700093";
     private static final int DEFAULT_ANZAHL = 1;
-//    private static final String DEFAULT_PRODUKTE = "Diesel";
     private static final int DEFAULT_JAHRE_GUELITIGKEIT = 1;
 
     private static final int DEFAULT_LIMIT = 1000;
@@ -41,32 +40,20 @@ public class TankkartenAnlegenController extends Controller {
 
         try {
             int kundenNr = Integer.parseInt(req.getBody().get("kundenNr"));
-            String pan = this.calcPAN(kundenNr);
 
-            //TODO: Produkte
-//            List<String> produkte = new ArrayList<>();
-//
-//            if (req.getBody().containsKey("produkte")) {
-//                String[] p = req.getBody().get("produkte").split("[\\[\\],]");
-//                produkte.addAll(Arrays.asList(p));
-//            } else {
-//                produkte.add(DEFAULT_PRODUKTE);
-//            }
-
-            int jahreGueltig = req.getBody().containsKey("jahreGueltig") ? Integer.parseInt(req.getBody().get("jahreGueltig")) : DEFAULT_JAHRE_GUELITIGKEIT;
+            int jahreGueltig = containsAndNotEmpty(req,"jahreGueltig") ? Integer.parseInt(req.getBody().get("jahreGueltig")) : DEFAULT_JAHRE_GUELITIGKEIT;
             Date bis = Date.valueOf(LocalDate.now().plusYears(jahreGueltig));
 
-            BigDecimal limit = req.getBody().containsKey("limit") ? new BigDecimal(req.getBody().get("limit")) : new BigDecimal(DEFAULT_LIMIT);
+            BigDecimal limit = containsAndNotEmpty(req, "limit") ? new BigDecimal(req.getBody().get("limit")) : new BigDecimal(DEFAULT_LIMIT);
 
-            int anzahlKarten = req.getBody().containsKey("anzahlKarten") ? Integer.parseInt(req.getBody().get("anzahlKarten")) : DEFAULT_ANZAHL;
+            int anzahlKarten =  containsAndNotEmpty(req, "anzahlKarten") ? Integer.parseInt(req.getBody().get("anzahlKarten")) : DEFAULT_ANZAHL;
 
             List<String> pans = new ArrayList<>();
             for (int i = 0; i < anzahlKarten; ++i) {
+                String pan = calcPAN(kundenNr);
                 new SPTankkarteAnlegen(dbConnection, kundenNr, pan, bis, limit).call();
                 pans.add(pan);
-                pan = calcPAN(kundenNr);
             }
-
 
             return res.setStatus(HTTPStatus.SUCCESS_201_CREATED).send(String.format("{\"msg\": [%s]}",
                     pans.stream().map(s -> String.format("\"%s\"", s)).collect(Collectors.joining(","))));
@@ -105,6 +92,6 @@ public class TankkartenAnlegenController extends Controller {
 
     @Override
     public AccountRole getRequiredRole() {
-        return AccountRole.NONE;
+        return AccountRole.BACKOFFICE;
     }
 }

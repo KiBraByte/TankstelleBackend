@@ -56,6 +56,6 @@ public class AbrechnungsController extends Controller {
 
     @Override
     public AccountRole getRequiredRole() {
-        return AccountRole.NONE;
+        return AccountRole.BACKOFFICE;
     }
 }
