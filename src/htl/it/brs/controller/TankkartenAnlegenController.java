@@ -1,6 +1,7 @@
 package htl.it.brs.controller;
 
 import htl.it.brs.database.callable.FCountTankkarten;
+import htl.it.brs.database.callable.SPProduktTankkarteZuordnen;
 import htl.it.brs.database.callable.SPTankkarteAnlegen;
 import htl.it.brs.database.dbconnection.DBConnection;
 import htl.it.brs.database.model.AccountRole;
@@ -12,12 +13,13 @@ import http.server.implementation.response.ResponseBuilder;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class TankkartenAnlegenController extends Controller {
-    private static final String PRODUCT_NAME = "Diesel";
+    private static final String DEFAULT_PRODUCT_NAME = "Diesel";
 
     private static final String ISSUER_ID = "700093";
     private static final int DEFAULT_ANZAHL = 1;
@@ -40,6 +42,7 @@ public class TankkartenAnlegenController extends Controller {
         }
 
         try {
+            dbConnection.getCon().setAutoCommit(false);
             int kundenNr = Integer.parseInt(req.getBody().get("kundenNr"));
 
             int jahreGueltig = containsAndNotEmpty(req,"jahreGueltig") ? Integer.parseInt(req.getBody().get("jahreGueltig")) : DEFAULT_JAHRE_GUELITIGKEIT;
@@ -49,14 +52,24 @@ public class TankkartenAnlegenController extends Controller {
 
             int anzahlKarten =  containsAndNotEmpty(req, "anzahlKarten") ? Integer.parseInt(req.getBody().get("anzahlKarten")) : DEFAULT_ANZAHL;
 
+            String produkteStr = containsAndNotEmpty(req, "produkte") ? req.getBody().get("produkte") : DEFAULT_PRODUCT_NAME;
+
+            String[] produkte = produkteStr.split(",");
+
+            System.out.println(Arrays.toString(produkte));
+
             List<String> pans = new ArrayList<>();
             for (int i = 0; i < anzahlKarten; ++i) {
                 String pan = calcPAN(kundenNr);
 
-                int result = new SPTankkarteAnlegen(dbConnection, kundenNr, pan, PRODUCT_NAME, bis, limit).call();
+                new SPTankkarteAnlegen(dbConnection, kundenNr, pan, bis, limit).call();
 
-                if (result == 1) {
-                    return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Product not found!");
+                for (String produkt : produkte) {
+                    int pResult = new SPProduktTankkarteZuordnen(dbConnection, pan, produkt.replaceAll("_", " ")).call();
+                    if (pResult != 0) {
+                        String msg = pResult >= TankkartenStatus.values().length ? "Unknown" : TankkartenStatus.values()[pResult].msg;
+                        throw new Exception(msg);
+                    }
                 }
 
                 pans.add(pan);
@@ -66,7 +79,16 @@ public class TankkartenAnlegenController extends Controller {
                     pans.stream().map(s -> String.format("\"%s\"", s)).collect(Collectors.joining(","))));
 
         } catch (Exception e) {
-            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Error!");
+            try {
+                dbConnection.getCon().rollback();
+            } catch (SQLException ignored) {}
+
+            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, e.getMessage());
+        } finally {
+            try {
+                dbConnection.getCon().commit();
+                dbConnection.getCon().setAutoCommit(true);
+            } catch (SQLException ignored) {}
         }
     }
 
@@ -84,6 +106,19 @@ public class TankkartenAnlegenController extends Controller {
         } else {
             throw new Exception("Invalid PAN!");
         }
+    }
+
+    private enum TankkartenStatus {
+        SUCCESS("SUCCESS"),
+        CARD_EXPIRED("Product not found!"),
+        CARD_DISABLED("PAN not found!");
+
+        private final String msg;
+
+        TankkartenStatus(String msg) {
+            this.msg = msg;
+        }
+
     }
 
 

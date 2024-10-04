@@ -10,17 +10,14 @@ public class SPTankkarteAnlegen extends DBCallableStatement<Integer> {
     private final String ausgestelltAuf;
     private final String pan;
 
-    String produkt;
-
     private final Date bis;
 
     private final BigDecimal kartenLimit;
 
-    public SPTankkarteAnlegen(DBConnection dbConnection, int kundenNr,String pan, String produkt, Date bis, BigDecimal kartenLimit) {
+    public SPTankkarteAnlegen(DBConnection dbConnection, int kundenNr,String pan, Date bis, BigDecimal kartenLimit) {
         super(dbConnection);
         this.kundenNr = kundenNr;
         this.ausgestelltAuf = String.format("Fahrer%04d", kundenNr);
-        this.produkt = produkt;
         this.pan = pan;
         this.bis = bis;
         this.kartenLimit = kartenLimit;
@@ -29,14 +26,13 @@ public class SPTankkarteAnlegen extends DBCallableStatement<Integer> {
     @Override
     @SuppressWarnings("all")
     public Integer call() throws SQLException {
-        try (CallableStatement cs = super.dbConnection.getCon().prepareCall("{? = call sp_tankkarte_erstellen(?,?,?,?,?,?)}")) {
+        try (CallableStatement cs = super.dbConnection.getCon().prepareCall("{? = call sp_tankkarte_erstellen(?,?,?,?,?)}")) {
             cs.registerOutParameter(1, Types.INTEGER);
             cs.setInt(2, this.kundenNr);
             cs.setString(3, this.ausgestelltAuf);
             cs.setString(4, this.pan);
-            cs.setString(5, this.produkt);
-            cs.setDate(6, this.bis);
-            cs.setBigDecimal(7, this.kartenLimit);
+            cs.setDate(5, this.bis);
+            cs.setBigDecimal(6, this.kartenLimit);
 
             cs.execute();
             return cs.getInt(1);

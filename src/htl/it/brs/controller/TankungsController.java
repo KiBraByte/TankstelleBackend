@@ -42,7 +42,7 @@ public class TankungsController extends Controller {
             int tsnr = Integer.parseInt(req.getBody().get("tsnr"));
             BigDecimal menge = new BigDecimal(req.getBody().get("menge"));
             BigDecimal preisProEinheit = new BigDecimal(req.getBody().get("preisproeinheit"));
-            String produkt = req.getBody().get("produkt");
+            String produkt = req.getBody().get("produkt").replaceAll("_", " ");
 
             int result = new SPTankungAnlegen(dbConnection, pan, tsnr, produkt,  menge, preisProEinheit).call();
 
@@ -55,7 +55,7 @@ public class TankungsController extends Controller {
 
             return res.setStatus(HTTPStatus.SUCCESS_201_CREATED).send(String.format("{ \"msg\": \"%s\" }", "Success!"));
         } catch (Exception e) {
-            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Error!");
+            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, e.getMessage());
         }
     }
 

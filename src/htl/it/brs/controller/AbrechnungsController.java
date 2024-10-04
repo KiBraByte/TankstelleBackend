@@ -40,7 +40,7 @@ public class AbrechnungsController extends Controller {
             }
 
         } catch (Exception e) {
-            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Dates are formatted incorrectly!");
+            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, e.getMessage());
         }
     }
 
