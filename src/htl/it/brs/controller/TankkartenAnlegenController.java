@@ -17,6 +17,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class TankkartenAnlegenController extends Controller {
+    private static final String PRODUCT_NAME = "Diesel";
 
     private static final String ISSUER_ID = "700093";
     private static final int DEFAULT_ANZAHL = 1;
@@ -51,7 +52,13 @@ public class TankkartenAnlegenController extends Controller {
             List<String> pans = new ArrayList<>();
             for (int i = 0; i < anzahlKarten; ++i) {
                 String pan = calcPAN(kundenNr);
-                new SPTankkarteAnlegen(dbConnection, kundenNr, pan, bis, limit).call();
+
+                int result = new SPTankkarteAnlegen(dbConnection, kundenNr, pan, PRODUCT_NAME, bis, limit).call();
+
+                if (result == 1) {
+                    return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Product not found!");
+                }
+
                 pans.add(pan);
             }
 
