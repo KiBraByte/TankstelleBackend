@@ -28,8 +28,7 @@ public class Main {
         new TankungsController(dbConnection).register(server);
         new AbrechnungsController(dbConnection).register(server);
         new LoginController(dbConnection).register(server);
-
-        server.use(HTTPMethod.GET, "/login", (req, res, params) -> res.html("login/login.html"));
+        new TankkartenDatenController(dbConnection).register(server);
 
         server.listen();
     }
