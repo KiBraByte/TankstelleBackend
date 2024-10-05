@@ -24,7 +24,7 @@ public class TankungsController extends Controller {
     @Override
     public ResponseBuilder controller(HTTPRequest req, ResponseBuilder res, HashMap<String, String> param) {
         if (super.requiresHigherPermissions(req)) {
-            return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not authenticated!");
+            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_401_NOT_AUTHORIZED, "Not authenticated!");
         }
 
         String[] requiredFields = new String[] {"pan", "produkt", "tsnr", "menge", "preisproeinheit"};

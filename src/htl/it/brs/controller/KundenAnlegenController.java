@@ -24,7 +24,7 @@ public class KundenAnlegenController extends Controller {
     public ResponseBuilder controller(HTTPRequest req, ResponseBuilder res, HashMap<String, String> param) {
 
         if (super.requiresHigherPermissions(req)) {
-            return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not authorized");
+            return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_401_NOT_AUTHORIZED, "Not authorized");
         }
 
         if (!req.getBody().containsKey("firmenname") || !req.getBody().containsKey("userName") || !req.getBody().containsKey("password")) {
