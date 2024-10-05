@@ -23,12 +23,12 @@ public class KundenDatenController extends Controller{
             return super.buildErrorResponse(res, HTTPStatus.REDIRECT_302_TEMP, "Not authorized");
         }
 
-        if (!param.containsKey("kundenNr")) {
+        if (!param.containsKey("sessionID")) {
             return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "No kundenNr found!");
         }
 
         try {
-            int kundenNr = Integer.parseInt(param.get("kundenNr"));
+            int kundenNr = Integer.parseInt(param.get("sessionID"));
             KundenDaten kundenDaten = new SPGetKundenDaten(super.dbConnection, kundenNr).call();
 
             if (kundenDaten == null) {
@@ -43,7 +43,7 @@ public class KundenDatenController extends Controller{
 
     @Override
     public String getRoute() {
-        return "/api/kundendaten/:sessionID/:kundenNr";
+        return "/api/kundendaten/:sessionID";
     }
 
     @Override
