@@ -3,13 +3,8 @@ import htl.it.brs.controller.*;
 import htl.it.brs.database.dbconnection.DBConnection;
 import htl.it.brs.database.dbconnection.DBConnectionSettings;
 import http.server.implementation.config.ConfigurationManager;
-import http.server.implementation.request.HTTPMethod;
 import http.server.implementation.server.Server;
 
-//TODO: Validate Data in DB
-//TODO: Customer Data Endpoint -> return Information of cards
-//TODO: Endpoint for getting Information from PAN
-//TODO: Endpoint for getting the prices of Products
 
 public class Main {
     public static void main(String[] args) throws Exception {

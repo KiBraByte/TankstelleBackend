@@ -22,7 +22,7 @@ public class SPGetTankkartenDaten extends DBCallableStatement<Tankkarte> {
 
             try (ResultSet rs = cs.executeQuery()) {
                 if (rs.next())  {
-                    Tankkarte t = new Tankkarte(rs.getBigDecimal(1) , rs.getString(2));
+                    Tankkarte t = new Tankkarte(rs.getBigDecimal(1) , rs.getString(2), rs.getBigDecimal(4));
                     do {
                         t.addCardProdukt(rs.getString(3));
                     } while(rs.next());
