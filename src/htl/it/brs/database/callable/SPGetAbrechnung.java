@@ -27,18 +27,16 @@ public class SPGetAbrechnung extends DBCallableStatement<AbrechnungsArr> {
                 if (rs.next()) {
                     AbrechnungsArr k = new AbrechnungsArr();
                     AbrechnungsModel a = new AbrechnungsModel(rs.getInt(1), rs.getString(2), rs.getBigDecimal(3));
-                    boolean hasNext = false;
+                    boolean hasNext = true;
 
                     while (rs.next()) {
                         int currKNr;
 
                         do {
                             currKNr = rs.getInt(1);
-
-                            if (!(a.getKundenNr() == currKNr)) {
+                            if (a.getKundenNr() != currKNr) {
                                 break;
                             }
-
                             hasNext = rs.next();
                         } while (hasNext);
 

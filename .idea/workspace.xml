@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e34b3968-2d1d-4a83-87a6-c6bb6bcebd3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPCreateAbrechnung.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetAbrechnung.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/model/AbrechnungsArr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/model/AbrechnungsModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/htl/it/brs/controller/AbrechnungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/AbrechnungsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetAbrechnung.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetAbrechnung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetKundenDaten.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetKundenDaten.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,10 +141,22 @@
       <workItem from="1728313593632" duration="792000" />
       <workItem from="1728326485617" duration="1200000" />
       <workItem from="1728366689995" duration="6512000" />
+      <workItem from="1728379372405" duration="2328000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetAbrechnung.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

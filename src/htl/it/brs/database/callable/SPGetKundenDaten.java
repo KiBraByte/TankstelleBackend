@@ -25,7 +25,7 @@ public final class SPGetKundenDaten extends DBCallableStatement<KundenDaten>{
                 if (rs.next()) {
                     KundenDaten k = new KundenDaten(rs.getString(1), rs.getBigDecimal(2), rs.getBigDecimal(3));
                     Tankkarte currT = new Tankkarte(rs.getBigDecimal(4), rs.getString(5), rs.getBigDecimal(7));
-                    boolean hasNext = false;
+                    boolean hasNext = true;
 
                     while (rs.next()) {
                         String currPan;
@@ -42,6 +42,7 @@ public final class SPGetKundenDaten extends DBCallableStatement<KundenDaten>{
                             if (currT.getPan() == null || !currT.getPan().equals(currPan)) {
                                 break;
                             }
+
                             currT.addCardProdukt(currProduct);
                             k.addProdukt(currProduct);
                             hasNext = rs.next();

@@ -37,6 +37,10 @@ public class AbrechnungsController extends Controller {
             int endMonth = Integer.parseInt(req.getBody().get("endMonth"));
             int endYear = Integer.parseInt(req.getBody().get("endYear"));
 
+            if (beginYear < 1900) {
+                return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Begin Date before 1900!");
+            }
+
             int result = new SPCreateAbrechnung(this.dbConnection, beginMonth, beginYear, endMonth, endYear).call();
             if (result == -1) {
                 return super.buildErrorResponse(res, HTTPStatus.CLIENT_ERR_400_BAD_REQUEST, "Invalid Dates!");
