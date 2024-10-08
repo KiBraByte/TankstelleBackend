@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e34b3968-2d1d-4a83-87a6-c6bb6bcebd3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPCreateAbrechnung.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/callable/SPGetAbrechnung.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/model/AbrechnungsArr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/htl/it/brs/database/model/AbrechnungsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/htl/it/brs/controller/AbrechnungsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/htl/it/brs/controller/AbrechnungsController.java" afterDir="false" />
-    </list>
+    <list default="true" id="e34b3968-2d1d-4a83-87a6-c6bb6bcebd3b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,10 +131,7 @@
       <workItem from="1728147473749" duration="1734000" />
       <workItem from="1728229448079" duration="230000" />
       <workItem from="1728280304145" duration="41000" />
-      <workItem from="1728280718004" duration="2005000" />
-      <workItem from="1728313593632" duration="792000" />
-      <workItem from="1728326485617" duration="1200000" />
-      <workItem from="1728366689995" duration="6512000" />
+      <workItem from="1728280718004" duration="5439000" />
     </task>
     <servers />
   </component>
